@@ -21,38 +21,41 @@
 			// All of the steps below must be achieved using JavaScript!
 
 			// 1. Change the h1 element to your name.
-			document.querySelector('h1').textContent = 'Siyu Ding';
+			document.querySelector('h1').innerHTML = 'Siyu Ding';
 
 			// 2. Update the three span elements using ONLY JavaScript
-			const spans = document.querySelectorAll('span');
-			if (spans.length >= 3) {
-				spans[0].textContent = 'https://siyu-ding.github.io/539_discussion11/';
-				spans[1].textContent = 'States and Schools';
-				spans[2].textContent = 'March 28th, 2024';
-			}
+			document.querySelector('#URL').innerHTML = window.location.href;
+
+			var listItems = document.querySelectorAll("li").length;
+			document.querySelector('#items').innerHTML = listItems;
+			document.querySelector('#time').innerHTML = new Date();
 
 		}
 
+		let counter = 0;
 		function stylePage() {
 
 			// 3. Change the background color and margin for the entire page.
-			document.body.style.backgroundColor = '#ADD8E6';
-			document.body.style.margin = '20px';
+			document.body.style.backgroundColor = 'lightblue';
+			document.body.style.margin = '50px';
 
 		}
 
 		// 4. If someone uses the keyboard shortcut to copy the words "University of Michigan" then add the words "Go Blue" to the final div.  
 		//    Each occurence should be on a separate line.  Don't use paragraphs. 
 		function copyFunction() {
-			document.addEventListener('copy', function (event) {
-				const selection = document.getSelection().toString();
-				if (selection.includes('University of Michigan')) {
-					const cheerDiv = document.getElementById('cheer');
-					cheerDiv.textContent += '\nGo Blue!';
-				}
-			});
+			document.querySelector("#cheer").innerHTML += "<span>Go Blue!</span><br>";
 
+			counter = counter + 1;
+			if (counter % 2 == 1) {
+				document.querySelector("#cheer span:last-of-type").tyle.color = "blue";
+			}
+			else {
+				document.querySelector("#cheer span:last-of-type").tyle.color = "yellow";
+			}
 		}
+
+
 
 
 	</script>
