@@ -47,9 +47,8 @@
 			document.addEventListener('copy', function (event) {
 				const selection = document.getSelection().toString();
 				if (selection.includes('University of Michigan')) {
-					const divs = document.querySelectorAll('div');
-					const lastDiv = divs[divs.length - 1];
-					lastDiv.textContent += '\nGo Blue';
+					const cheerDiv = document.getElementById('cheer');
+					cheerDiv.textContent += '\nGo Blue!';
 				}
 			});
 
